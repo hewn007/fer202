@@ -26,4 +26,4 @@ console.log(people);
 // Lọc ra những người có age > 20
 const peopleOver20 = people.filter(person => person.age > 20);
 console.log("Những người có tuổi > 20:");
-console.log(peopleOver20);
+peopleOver20.forEach(person => console.log(person.name));
