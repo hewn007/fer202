@@ -1,73 +1,84 @@
+function Exercise2() {
 
-export function Exercise2() {
-    //khai bao people chua danh sach 10 nguoi
-    const people = [
-        { id: 1, name: "Nguyen Van A", age: 20 },
-        { id: 2, name: "Tran Thi B", age: 21 },
-        { id: 3, name: "Le Van C", age: 22 },
-        { id: 4, name: "Pham Thi D", age: 23 },
-        { id: 5, name: "Hoang Van E", age: 24 },
-        { id: 6, name: "Do Thi F", age: 25 },
-        { id: 7, name: "Bui Van G", age: 26 },
-        { id: 8, name: "Ngo Thi H", age: 27 },
-        { id: 9, name: "Vu Van I", age: 28 },
-        { id: 10, name: "Dang Thi J", age: 29 }
+    //1. Tạo 1 mảng số nguyên in ra danh sách list
+    const numbers = [1, 12, -10, 5, -15, 20, 3, 7, 8, -4];
+    //2. Tính tổng các phần tử trong mảng
+    const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+    //3. Tính giá trị trung bình các phần từ trong mảng
+    const average = sum / numbers.length;
+    //4. Khai báo mảng chuỗi name, in ra danh sách các tên, theo thứ tự tâng dần theo Alphabet
+    const names = ["Bảo", "Anh", "Đan", "Nam", "Hà", "Hùng", "Lan", "Minh", "Nam", "Phương"];
+    names.sort();
+    //5. Khai báo 1 mảng people chứa 10 đối tượng Students
+    // Mỗi đối tượng student có các thuộc tính: id, name, age, grade
+    //(id là số nguyên, namde là chuỗi, age là số nguyên, grade là số thực)
+    const Students = [
+        { id: 1, name: "Bảo", age: 20, grade: 10.0 },
+        { id: 2, name: "Anh", age: 22, grade: 7.0 },    
+        { id: 3, name: "Đan", age: 21, grade: 9.0 },
+        { id: 4, name: "Nam", age: 23, grade: 6.5 },
+        { id: 5, name: "Hà", age: 20, grade: 8.0 },
+        { id: 6, name: "Hùng", age: 22, grade: 7.5 },   
+        { id: 7, name: "Lan", age: 21, grade: 9.5 },
+        { id: 8, name: "Minh", age: 23, grade: 6.0 },
+        { id: 9, name: "Nam", age: 20, grade: 8.8 },
+        { id: 10, name: "Phương", age: 22, grade: 7.8 },
     ];
-    //bien total
-    const numberList = [1, -2, 3, 4, -5, 6];
-    // tinh tong cac so nguyen
-    const total = numberList.reduce((sum, num) => sum + num, 0);
-    // sap xep cac so nguyen tang dan
-    const sortedNumbers = [...numberList].sort((a, b) => a - b);
-    //khai bao chuoi ten
-    const ten = "Nguyen Van A";
-    // sap xep chuoi ten tang dan
-    const sortedNames = [...people].sort((a, b) => a.name.localeCompare(b.name));
-    // loc ra nhung nguoi co do tuoi tu 13-19 tuoi
-    const teens = people.filter(person => person.age >= 13 && person.age <= 19);
-    // dem co bao nhieu nguoi
-    const peopleCount = people.length;
-    // tinh trung binh tuoi
-    const avgAge = (people.reduce((sum, person) => sum + person.age, 0) / people.length).toFixed(2);
+    //In ra dánh sách Students có grade >= 7.5, sắp xếp theo grade giảm dần
+    const topStudents = Students.filter(student => student.grade >= 7.5);
+    topStudents.sort((a, b) => b.grade - a.grade);
+    //Hiển thị danh sách topStudents dưới dảng bảng
+    //Tính tổng trung bình grade của topStudents và hiển thị ở cuối bảng và chỉnh css
+    const totalTopGrade = topStudents.reduce((acc, curr) => acc + curr.grade, 0);
+    const averageTopGrade = totalTopGrade / topStudents.length;
+
     return (
         <div>
-            <p>Hello <strong>Exercise2</strong></p>
-            <p>So luong nguoi: <strong>{peopleCount}</strong></p>
-            <p>Tuoi trung binh: <strong>{avgAge}</strong></p>
-            <p>Tong cac so nguyen: <strong>{total}</strong></p>
-            <p>So nguyen tang dan:</p>
+            <h1>Exercise 2</h1>
+            <p>In mảng số nguyên</p>
             <ul>
-                {sortedNumbers.map((num, idx) => (
-                    <li key={idx}>{num}</li>
+                {numbers.map((number, i) => (
+                    <li key={i}>Phần tử thứ {i} - {number}</li>
                 ))}
             </ul>
-            <p>Chuoi ten tang dan:</p>
+            <p>Tổng các phần tử trong mảng: {sum}</p>
+            <p>Giá trị trung bình các phần từ trong mảng: {average.toFixed(2)}</p>
+            <p>In mảng tên đã sắp xếp theo thứ tự tăng dần Alphabet</p>
             <ul>
-                {sortedNames.map(person => (
-                    <li key={person.id}>{person.name}</li>
+                {names.map((name, i) => (
+                    <li key={i}> {name}</li>
                 ))}
             </ul>
-            <p>Nhung nguoi co do tuoi tu 13-19:</p>
-            <ul>
-                {teens.length > 0 ? (
-                    teens.map(person => (
-                        <li key={person.id}>
-                            ID: {person.id}, Name: {person.name}, Age: {person.age}
-                        </li>
-                    ))
-                ) : (
-                    <li>Khong co nguoi nao trong do tuoi nay.</li>
-                )}
-            </ul>
-            <ul>
-                {people.map(person => (
-                    <li key={person.id}>
-                        ID: {person.id}, Name: {person.name}, Age: {person.age}
-                    </li>
-                ))}
-            </ul>
+            <p>Hiển thị danh sách topStudents dưới dạng bảng</p>
+            <table border="1" cellPadding="5" >
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Grade</th>      
+                    </tr>
+                </thead>
+                <tbody>
+                    {topStudents.map((student) => (
+                        <tr key={student.id}>
+                            <td>{student.id}</td>
+                            <td>{student.name}</td>
+                            <td>{student.age}</td>
+                            <td>{student.grade}</td>
+                        </tr>
+                    ))}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colSpan="3"><strong>Average Grade</strong></td>
+                        <td><strong>{averageTopGrade.toFixed(2)}</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+            
+            
         </div>
     );
 }
-
-    
+export default Exercise2;
