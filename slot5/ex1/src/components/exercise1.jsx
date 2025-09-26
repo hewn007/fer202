@@ -1,14 +1,15 @@
-export function Exercise1() {
-    const double = (x) => x * 2;
-    const isPositive = (x) => x > 0;
+function Exercise1() {
+
+    //tinh ham double
+    const hamDouble = (x) => x * 2;
+    //goi ham kiem tra so chan
+    const isEven = (x) => x % 2 === 0;
   return (
-    <>
-    <p>Hello <strong>Exercise1</strong></p>
-    <h2>Chi tiet bai tap 1</h2>
-    <p></p>
-    </>
-    
-    
-    
-  );
+    <div>
+      <h1>Exercise 1</h1>
+      <p>Kết quả hamDouble(5): {hamDouble(5)}</p>
+      <p>Kết quả isEven(4): {isEven(4).toString()? "Số chẵn" : "Số lẻ"}</p>
+    </div>
+    );
 }
+export default Exercise1;
