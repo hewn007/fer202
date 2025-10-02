@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exercise 4 — Students Detail</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <style>
+    .topbar{background:#e9c59f}
+    .brandbar{background:#e48e2f}
+    .heroimg{width:100%;height:auto;border-radius:.25rem}
+    .card-img-top{aspect-ratio:4/5;object-fit:cover}
+    .footer{background:#e48e2f}
+    .contact i{opacity:.8}
+  </style>
+</head>
+<body>
+  <!-- Top bar -->
+  <div class="topbar py-2">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="small">
+        <strong>FPT UNIVERSITY</strong>
+        <a class="ms-3 text-dark text-decoration-none" href="#">Trang chủ</a>
+        <a class="ms-3 text-dark text-decoration-none" href="#">Ngành học</a>
+        <a class="ms-3 text-dark text-decoration-none" href="#">Tuyển sinh</a>
+        <a class="ms-3 text-dark text-decoration-none" href="#">Sinh viên</a>
+      </div>
+      <form class="d-none d-md-flex align-items-center">
+        <label class="me-2 small">Search:</label>
+        <input class="form-control form-control-sm" style="width:180px" type="search" />
+      </form>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <div class="brandbar py-3">
+    <div class="container">
+      <img class="heroimg" src="https://i.imgur.com/6Z2m2fE.jpeg" alt="Students"
+           onerror="this.src='https://picsum.photos/1200/350?blur=1'">
+    </div>
+  </div>
+
+  <!-- Breadcrumb -->
+  <div class="container my-3">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Students</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Title -->
+  <div class="container">
+    <h2 class="text-center mb-4">Students Detail</h2>
+  </div>
+
+  <!-- Cards grid -->
+  <div class="container pb-4">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <!-- Card 1 -->
+      <div class="col">
+        <div class="card h-100">
+          <img class="card-img-top" src="https://i.imgur.com/0p1fANF.jpeg" alt="Student 1"
+               onerror="this.src='https://picsum.photos/600/750?1'">
+          <div class="card-body">
+            <h6 class="card-subtitle text-muted mb-1">DE160182</h6>
+            <div class="d-flex justify-content-between small">
+              <span>Nguyễn Hữu Quốc Khánh</span><span>DaNang</span>
+            </div>
+            <div class="mt-2 small">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="s1" id="s1a"><label class="form-check-label" for="s1a">Absent</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="s1" id="s1p"><label class="form-check-label" for="s1p">Present</label>
+              </div>
+            </div>
+            <button class="btn btn-warning btn-sm mt-3">Submit</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col">
+        <div class="card h-100">
+          <img class="card-img-top" src="https://i.imgur.com/b3r3S2Y.jpeg" alt="Student 2"
+               onerror="this.src='https://picsum.photos/600/750?2'">
+          <div class="card-body">
+            <h6 class="card-subtitle text-muted mb-1">DE160377</h6>
+            <div class="d-flex justify-content-between small">
+              <span>Choy Vinh Thiên</span><span>QuangNam</span>
+            </div>
+            <div class="mt-2 small">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="s2" id="s2a"><label class="form-check-label" for="s2a">Absent</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="s2" id="s2p"><label class="form-check-label" for="s2p">Present</label>
+              </div>
+            </div>
+            <button class="btn btn-warning btn-sm mt-3">Submit</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col">
+        <div class="card h-100">
+          <img class="card-img-top" src="https://i.imgur.com/JkL9AnG.jpeg" alt="Student 3"
+               onerror="this.src='https://picsum.photos/600/750?3'">
+          <div class="card-body">
+            <h6 class="card-subtitle text-muted mb-1">DE160547</h6>
+            <div class="d-flex justify-content-between small">
+              <span>Đỗ Nguyễn Phúc</span><span>QuangNam</span>
+            </div>
+            <div class="mt-2 small">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="s3" id="s3a"><label class="form-check-label" for="s3a">Absent</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="s3" id="s3p"><label class="form-check-label" for="s3p">Present</label>
+              </div>
+            </div>
+            <button class="btn btn-warning btn-sm mt-3">Submit</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col">
+        <div class="card h-100">
+          <img class="card-img-top" src="https://i.imgur.com/cn3m7yU.jpeg" alt="Student 4"
+               onerror="this.src='https://picsum.photos/600/750?4'">
+          <div class="card-body">
+            <h6 class="card-subtitle text-muted mb-1">DE170049</h6>
+            <div class="d-flex justify-content-between small">
+              <span>Lê Hoàng Minh</span><span>DaNang</span>
+            </div>
+            <div class="mt-2 small">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="s4" id="s4a"><label class="form-check-label" for="s4a">Absent</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="s4" id="s4p"><label class="form-check-label" for="s4p">Present</label>
+              </div>
+            </div>
+            <button class="btn btn-warning btn-sm mt-3">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer with address + socials -->
+  <footer class="footer text-white mt-4">
+    <div class="container py-4">
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <h6>Our Address</h6>
+          <p class="mb-1 small">Khu đô thị FPT Đà Nẵng</p>
+          <p class="mb-1 small">+84 0236 3711 111</p>
+          <p class="mb-0 small">edu@fpt.edu.vn</p>
+        </div>
+        <div class="col-12 col-md-6 d-flex align-items-end justify-content-md-end">
+          <div class="contact small">
+            <a class="text-white text-decoration-none me-3" href="#">G+</a>
+            <a class="text-white text-decoration-none me-3" href="#">f</a>
+            <a class="text-white text-decoration-none me-3" href="#">in</a>
+            <a class="text-white text-decoration-none me-3" href="#">🐦</a>
+            <a class="text-white text-decoration-none" href="#">✉️</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center small mt-3">© Copyright 2023</div>
+    </div>
+  </footer>
+
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

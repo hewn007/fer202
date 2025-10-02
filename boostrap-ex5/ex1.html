@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exercise 1</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <style>
+    .hero{background:#eef2f5;padding:48px 0}
+    .demo-wrap{padding:24px 0 36px;border-top:1px solid #eee;border-bottom:1px solid #eee}
+    .tile{background:#dcdcdc;border:1px solid #bfbfbf;padding:12px;text-align:left;font-size:.95rem}
+    .credit{background:#d7c9c9;padding:10px 0}
+    .credit h2{margin:0;font-weight:700;font-size:2.2rem}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="hero">
+    <div class="container">
+      <h1 class="display-6 fw-bold mb-0">Let's test the grid!</h1>
+    </div>
+  </div>
+
+  <!-- Grid area -->
+  <div class="container demo-wrap">
+    <!-- Row 1 -->
+    <div class="row gx-3 gy-3 mb-2">
+      <div class="col-12 col-lg-6"><div class="tile">First col</div></div>
+      <div class="col-12 col-lg-6"><div class="tile">Second col</div></div>
+    </div>
+    <!-- Row 2 -->
+    <div class="row gx-3 gy-3 mb-2">
+      <div class="col-12 col-lg-4"><div class="tile">col</div></div>
+      <div class="col-12 col-lg-4"><div class="tile">col</div></div>
+      <div class="col-12 col-lg-4"><div class="tile">col</div></div>
+    </div>
+    <!-- Row 3 -->
+    <div class="row gx-3 gy-3">
+      <div class="col-12 col-lg-3"><div class="tile">col</div></div>
+      <div class="col-12 col-lg-6"><div class="tile">col</div></div>
+      <div class="col-12 col-lg-3"><div class="tile">col</div></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="credit">
+    <div class="container text-center">
+      <h2>Created by ABC!</h2>
+    </div>
+  </footer>
+
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
