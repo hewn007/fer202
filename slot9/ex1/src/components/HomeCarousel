@@ -1,0 +1,38 @@
+import Carousel from 'react-bootstrap/Carousel';
+import Badge from 'react-bootstrap/Badge';
+
+const movies = [
+  {
+    title: "Phim 1",
+    genre: "Hành động",
+    image: "/path/to/image1.jpg"
+  },
+  {
+    title: "Phim 2",
+    genre: "Tình cảm",
+    image: "/path/to/image2.jpg"
+  },
+  {
+    title: "Phim 3",
+    genre: "Kinh dị",
+    image: "/path/to/image3.jpg"
+  }
+];
+
+function HomeCarousel() {
+  return (
+    <Carousel interval={3000} fade>
+      {movies.map((movie, idx) => (
+        <Carousel.Item key={idx}>
+          <img className="d-block w-100" src={movie.image} alt={movie.title} />
+          <Carousel.Caption>
+            <h3>{movie.title}</h3>
+            <Badge bg="info">{movie.genre}</Badge>
+          </Carousel.Caption>
+        </Carousel.Item>
+      ))}
+    </Carousel>
+  );
+}
+
+export default HomeCarousel;

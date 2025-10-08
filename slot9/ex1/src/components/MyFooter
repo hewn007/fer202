@@ -1,0 +1,13 @@
+import  Button from "react-bootstrap/Button";
+
+function MyFooter() {
+  return (
+    <footer>
+      <p>Author: Anh Quan</p>
+      <p>Created by: phimhay1407@GMAIL.COM </p>
+      <p>&copy; {new Date().getFullYear()} Anh Quan. All rights reserved </p>
+      <Button variant="link" href="" >My Link Github's project: Movies Management </Button>
+    </footer>
+  )
+}
+export default MyFooter;
