@@ -1,102 +1,90 @@
-import React, { useReducer } from "react";
-import { Form, Button, Card, Container, Row, Col, Modal } from "react-bootstrap";
+//useReducer for Login Form
+import React, { useReducer } from 'react';
+import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
+import ConfirmModal from './ConfirmModal';
 
-// Initial state for the login form
 const initialState = {
-  username: '',
-  password: '',
+  user: { username: '', password: '' },
   errors: {},
-  showModal: false,
+  showModal: false
 };
 
-// Reducer function to handle form state
-function loginReducer(state, action) {
+function reducer(state, action) {
   switch (action.type) {
-    case "SET_USERNAME":
+    case 'SET_USER_FIELD':
       return {
         ...state,
-        username: action.payload,
-        errors: action.payload.trim() === '' 
-          ? { ...state.errors, username: 'Username is required' }
-          : (() => {
-              const { username, ...rest } = state.errors;
-              return rest;
-            })(),
+        user: { ...state.user, [action.field]: action.value }
       };
-
-    case "SET_PASSWORD":
+    case 'SET_ERROR':
       return {
         ...state,
-        password: action.payload,
-        errors: action.payload.trim() === '' 
-          ? { ...state.errors, password: 'Password is required' }
-          : (() => {
-              const { password, ...rest } = state.errors;
-              return rest;
-            })(),
+        errors: { ...state.errors, [action.field]: action.message }
       };
-
-    case "SET_ERRORS":
+    case 'CLEAR_ERROR': {
+      const { [action.field]: removed, ...rest } = state.errors;
       return {
         ...state,
-        errors: action.payload,
+        errors: rest
       };
-
-    case "SHOW_MODAL":
+    }
+    case 'SET_ERRORS':
       return {
         ...state,
-        showModal: true,
+        errors: { ...action.errors }
       };
-
-    case "HIDE_MODAL":
+    case 'SHOW_MODAL':
       return {
         ...state,
-        showModal: false,
-        username: '',
-        password: '',
-        errors: {},
+        showModal: true
       };
-
+    case 'HIDE_MODAL':
+      return {
+        ...state,
+        showModal: false
+      };
+    case 'RESET_FORM':
+      return initialState;
     default:
       return state;
   }
 }
 
-// Main LoginForm component
-function LoginForm({ onSubmit }) {
-  const [state, dispatch] = useReducer(loginReducer, initialState);
-  const { username, password, errors, showModal } = state;
+function LoginForm() {
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  // Xử lý thay đổi input
-  const handleUsernameChange = (e) => {
-    dispatch({ type: "SET_USERNAME", payload: e.target.value });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    dispatch({ type: 'SET_USER_FIELD', field: name, value });
+
+    if (value.trim() === '') {
+      dispatch({
+        type: 'SET_ERROR',
+        field: name,
+        message: `${name.charAt(0).toUpperCase() + name.slice(1)} is required`
+      });
+    } else {
+      dispatch({ type: 'CLEAR_ERROR', field: name });
+    }
   };
 
-  // Xử lý thay đổi password
-  const handlePasswordChange = (e) => {
-    dispatch({ type: "SET_PASSWORD", payload: e.target.value });
-  };
-
-  // Xử lý submit form
   const handleSubmit = (e) => {
-    e.preventDefault(); // Ngăn chặn reload trang
-    const newErrors = {};       
-    if (username.trim() === '') {
-      newErrors.username = 'Username is required';
+    e.preventDefault();
+    const newErrors = {};
+    if (state.user.username.trim() === '') newErrors.username = 'Username is required';
+    if (state.user.password.trim() === '') newErrors.password = 'Password is required';
+
+    if (Object.keys(newErrors).length > 0) {
+      dispatch({ type: 'SET_ERRORS', errors: newErrors });
+      return;
     }
-    if (password.trim() === '') {
-      newErrors.password = 'Password is required';
-    }
-    dispatch({ type: "SET_ERRORS", payload: newErrors });
-    if (Object.keys(newErrors).length === 0) {
-      // onSubmit({ username, password });
-      dispatch({ type: "SHOW_MODAL" }); // Hiển thị modal khi không có lỗi
-    }
+
+    dispatch({ type: 'SHOW_MODAL' });
   };
 
-  // Đóng modal
   const handleCloseModal = () => {
-    dispatch({ type: "HIDE_MODAL" });
+    dispatch({ type: 'HIDE_MODAL' });
+    dispatch({ type: 'RESET_FORM' });
   };
 
   return (
@@ -105,59 +93,66 @@ function LoginForm({ onSubmit }) {
         <Col md={6}>
           <Card>
             <Card.Header>
-              <h3 className="text-center">Login</h3>
+              <h3 className="text-center">Login Form with useReducer</h3>
             </Card.Header>
             <Card.Body>
-              <Form onSubmit={handleSubmit}>  
+              <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="username" className="mb-3">
                   <Form.Label>Username</Form.Label>
-                  <Form.Control 
+                  <Form.Control
                     type="text"
-                    value={username}
-                    onChange={handleUsernameChange} 
-                    isInvalid={!!errors.username}
-                    placeholder="Enter username"
+                    name="username"
+                    value={state.user.username}
+                    onChange={handleChange}
+                    isInvalid={!!state.errors.username}
                   />
                   <Form.Control.Feedback type="invalid">
-                    {errors.username}
+                    {state.errors.username}
                   </Form.Control.Feedback>
                 </Form.Group>
 
-                <Form.Group controlId="password" className="mb-3">  
+                <Form.Group controlId="password" className="mb-3">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control 
+                  <Form.Control
                     type="password"
-                    value={password}
-                    onChange={handlePasswordChange} 
-                    isInvalid={!!errors.password}   
+                    name="password"
+                    value={state.user.password}
+                    onChange={handleChange}
+                    isInvalid={!!state.errors.password}
                     placeholder="Enter password"
                   />
                   <Form.Control.Feedback type="invalid">
-                    {errors.password}
+                    {state.errors.password}
                   </Form.Control.Feedback>
-                </Form.Group>   
-                <Button variant="primary" type="submit" className="w-100">
-                  Login
-                </Button>
+                </Form.Group>
+
+                <div className="d-flex gap-2">
+                  <Button variant="primary" type="submit" className="flex-fill">
+                    Login
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    type="button"
+                    className="flex-fill"
+                    onClick={() => dispatch({ type: 'RESET_FORM' })}
+                  >
+                    Cancel
+                  </Button>
+                </div>
               </Form>
             </Card.Body>
           </Card>
         </Col>
       </Row>
+
       {/* Modal hiển thị khi đăng nhập thành công */}
-      <Modal show={showModal} onHide={handleCloseModal} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Login Successful</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>Welcome, {username}!</p>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <ConfirmModal
+        show={state.showModal}
+        title="Login Successful"
+        message={`Welcome, ${state.user.username}! You have successfully logged in!`}
+        onConfirm={handleCloseModal}
+        onHide={handleCloseModal}
+      />
     </Container>
   );
 }

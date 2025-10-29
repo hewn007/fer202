@@ -1,22 +1,26 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+//áp dụng ThemeProvider để bao bọc toàn bộ ứng dụng
 import { ThemeProvider } from "./contexts/ThemeContext";
-import { AuthProvider } from "./contexts/AuthContext";
-import CounterComponent from "./components/CounterComponent";
 import LightSwitch from "./components/LightSwitch";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import CounterComponent from "./components/CounterComponent";
+import { AuthProvider } from "./contexts/AuthContext";
 import LoginForm from "./components/LoginForm";
 
 function App() {
   return (
-    <ThemeProvider>
-      <AuthProvider>
-        <div style={{ minHeight: "100vh", padding: "20px" }}>
-          <LoginForm />
-          <CounterComponent />
-          <LightSwitch />
-        </div>
-      </AuthProvider>
-    </ThemeProvider>
+    <div>
+  <ThemeProvider>
+      <CounterComponent />
+      <LightSwitch />
+      </ThemeProvider>
+
+    <AuthProvider>
+    <div className="App">
+      <LoginForm />
+    </div>
+    </AuthProvider>
+    </div>
+  
   );
 }
 
