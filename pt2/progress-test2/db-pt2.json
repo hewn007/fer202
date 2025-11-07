@@ -7,7 +7,7 @@
       "fullName": "Nguyễn Văn Nam",
       "role": "admin",
       "status": "active",
-      "avatar": "/images/users/thong.png"
+      "avatar": "/images/users/admin.png"
     },
     {
       "id": "2",
@@ -15,8 +15,8 @@
       "password": "123456",
       "fullName": "Nguyễn Hải",
       "role": "user",
-      "status": "blocked",
-      "avatar": "/images/users/thong.png"
+      "status": "active",
+      "avatar": "/images/users/hainguyen.png"
     },
     {
       "id": "3",
@@ -24,8 +24,8 @@
       "password": "123456",
       "fullName": "Nguyễn Văn Thanh",
       "role": "admin",
-      "status": "blocked",
-      "avatar": "/images/users/thong.png"
+      "status": "locked",
+      "avatar": "/images/users/thanh123.png"
     },
     {
       "id": "4",
@@ -34,7 +34,7 @@
       "fullName": "Phạm Thanh",
       "role": "user",
       "status": "locked",
-      "avatar": "/images/users/thong.png"
+      "avatar": "/images/users/thanhpt.png"
     }
   ],
   "payments": [
@@ -85,6 +85,14 @@
       "courseName": "Network Security",
       "amount": 3800000,
       "date": "2025-10-20"
+    },
+    {
+      "id": "7ca7",
+      "semester": "sss",
+      "courseName": "s",
+      "amount": 120000000,
+      "date": "2025-11-07",
+      "userId": "1"
     }
   ]
 }
