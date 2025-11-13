@@ -1,0 +1,24 @@
+
+.table-custom thead {
+ background-color: #e9ecef;
+ font-weight: bold;
+}
+.table-custom tbody tr {
+ background-color: #f8f9fa;
+}
+.header-bar{
+ background:white;
+ padding:12px 20px;
+ border-radius:6px;
+ margin-bottom:20px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ box-shadow:0 1px 3px rgba(0,0,0,0.1);
+}
+.footer{
+ margin-top:30px;
+ padding:15px;
+ text-align:center;
+ color:#555;
+}

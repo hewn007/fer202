@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123456",
+      "fullName": "Admin User"
+    }
+  ],
+  "expenses": [
+    {
+      "id": "bcd2",
+      "name": "q2",
+      "amount": 21,
+      "category": "siu",
+      "date": "2025-11-28",
+      "userId": "1"
+    }
+  ]
+}

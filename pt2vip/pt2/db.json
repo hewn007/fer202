@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John",
+      "isAdmin": false
+    },
+    {
+      "id": "2",
+      "name": "Alice",
+      "isAdmin": true
+    },
+    {
+      "id": "3",
+      "name": "Bob",
+      "isAdmin": false
+    }
+  ],
+  "payments": [
+    {
+      "id": "50ad",
+      "amount": 200,
+      "status": "SUCCESS"
+    }
+  ]
+}

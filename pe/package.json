@@ -1,0 +1,25 @@
+{
+  "name": "fer202-ui-full",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "server": "json-server --watch db.json --port 3001",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^6.22.0",
+    "axios": "^1.6.8",
+    "bootstrap": "^5.3.2",
+    "json-server": "^1.0.0-beta.3",
+    "@reduxjs/toolkit": "^2.1.0",
+    "react-redux": "^9.2.0",
+    "react-bootstrap": "^2.10.0"
+  },
+  "devDependencies": {
+    "vite": "^5.2.0",
+    "@vitejs/plugin-react": "^5.0.0"
+  }
+}
